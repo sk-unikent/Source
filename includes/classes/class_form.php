@@ -91,6 +91,7 @@ class Form {
   */
   function load($id) {
     $row = $this->_DAO->fetch_row("SELECT * FROM " . APP__DB_TABLE_PREFIX . "form f WHERE f.form_id = '$id'");
+
     return ($row) ? $this->load_from_row($row) : false;
   }// /->load()
 
@@ -101,11 +102,12 @@ class Form {
   * @param array $row assoc array ( field => value, ... ) - corresponds to row in database
   * @return boolean  did load succeed
   */
-  function load_from_row(&$row) {
+  function load_from_row($row) {
     $this->id = $row['form_id'];
     $this->name = $row['form_name'];
     $this->type = (is_null($row['form_type'])) ? 'likert' : $row['form_type'];
     $this->_load_xml($row['form_xml']);
+
     return true;
   }// /->load_from_row()
 

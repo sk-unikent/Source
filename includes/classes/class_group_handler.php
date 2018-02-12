@@ -226,6 +226,7 @@ class GroupHandler {
   * @return array array of collections
   */
   function get_member_collections($user_id, $application_id = null, $owner_type) {
+
     if ($owner_type == 'user') {
       $sql = 'SELECT DISTINCT c.*, NULL AS collection_assessment_id FROM ' . APP__DB_TABLE_PREFIX .
              'collection c INNER JOIN ' . APP__DB_TABLE_PREFIX .
