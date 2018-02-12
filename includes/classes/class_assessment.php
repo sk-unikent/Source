@@ -153,9 +153,9 @@ class Assessment {
                'module_id'       => $this->module_id ,
                'collection_id'    => $this->_collection_id ,
                'form_xml'       => $this->_form_xml ,
-               'open_date'      => date(MYSQL_DATETIME_FORMAT, $this->open_date) ,
-               'close_date'     => date(MYSQL_DATETIME_FORMAT, $this->close_date) ,
-               'retract_date'     => date(MYSQL_DATETIME_FORMAT, $this->close_date) ,
+               'open_date'      => date(MYSQLI_DATETIME_FORMAT, $this->open_date) ,
+               'close_date'     => date(MYSQLI_DATETIME_FORMAT, $this->close_date) ,
+               'retract_date'     => date(MYSQLI_DATETIME_FORMAT, $this->close_date) ,
                'introduction'     => $this->introduction ,
                'allow_feedback'   => ($this->allow_feedback) ? 1 : 0 ,
                'assessment_type'    => ($this->assessment_type)? 1 : 0 ,
@@ -335,7 +335,7 @@ class Assessment {
   function get_marking_params($marksheet_id) {
     $params = null;
 
-    $marking_date_sql = date(MYSQL_DATETIME_FORMAT, $marksheet_id);
+    $marking_date_sql = date(MYSQLI_DATETIME_FORMAT, $marksheet_id);
 
     $marking_params = $this->_DAO->fetch_value("SELECT marking_params
                           FROM " . APP__DB_TABLE_PREFIX . "assessment_marking

@@ -68,8 +68,6 @@ if ( ($username) && ($password) ) {
     $msg = 'no access';
 
   } else {
-
-    $_SESSION = array();
     session_destroy();
     session_name(SESSION_NAME);
     session_start();
@@ -81,6 +79,7 @@ if ( ($username) && ($password) ) {
     $_SESSION['_source_id'] = $_auth->source_id;
     $_SESSION['_module_id'] = $_auth->module_id;
     $_SESSION['_user_context_id'] = $_auth->module_code;
+    session_write_close();
 
     logEvent('Login');
     logEvent('Enter module', $_auth->module_id);

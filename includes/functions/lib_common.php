@@ -9,7 +9,7 @@
  * @version 1.0.0.0
  *
  */
-define('MYSQL_DATETIME_FORMAT','Y-m-d H:i:s');    // MYSQL datetime format (for update/insert/etc)
+define('MYSQLI_DATETIME_FORMAT','Y-m-d H:i:s');    // MYSQL datetime format (for update/insert/etc)
 
 /**
  * fetch var from a cookie (or return default if unset)
@@ -117,7 +117,7 @@ function logEvent($description, $module_id = NULL, $object_id = NULL) {
 
   global $DB;
 
-  $now = date(MYSQL_DATETIME_FORMAT,time());
+  $now = date(MYSQLI_DATETIME_FORMAT,time());
   if (!empty($module_id)) {
     $module_id = intval($module_id);
   }
@@ -139,7 +139,6 @@ function logEvent($description, $module_id = NULL, $object_id = NULL) {
 * @param string $user_type
 */
 function check_user($_user, $user_type = NULL) {
-
   // Is the user valid?
   if ($_user) {
 

@@ -29,7 +29,7 @@
 // Get and organise assessments
 
 // get the assessment that are pending
-$now = date(MYSQL_DATETIME_FORMAT);
+$now = date(MYSQLI_DATETIME_FORMAT);
 $assessments = $DB->fetch("SELECT a.*
               FROM " . APP__DB_TABLE_PREFIX . "assessment a
               WHERE a.module_id = {$_module['module_id']}

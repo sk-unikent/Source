@@ -40,8 +40,8 @@ $academic_year = get_academic_year();
 $start_date = mktime(0, 0, 0, APP__ACADEMIC_YEAR_START_MONTH, 1, $academic_year);
 $end_date = mktime(0, 0, 0, APP__ACADEMIC_YEAR_START_MONTH, 1, $academic_year + 1);
 
-$sql_start_date = date(MYSQL_DATETIME_FORMAT, $start_date);
-$sql_end_date = date(MYSQL_DATETIME_FORMAT, $end_date);
+$sql_start_date = date(MYSQLI_DATETIME_FORMAT, $start_date);
+$sql_end_date = date(MYSQLI_DATETIME_FORMAT, $end_date);
 
 $assessments = $DB->fetch('SELECT a.* FROM ' . APP__DB_TABLE_PREFIX . 'assessment a ' .
                           "WHERE (a.module_id = {$_module_id}) AND " .

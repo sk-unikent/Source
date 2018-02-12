@@ -131,8 +131,8 @@ class GroupCollection {
       $fields = array ('collection_id'      => $this->id ,
                'module_id'      => $this->module_id ,
                'collection_name'      => $this->name ,
-               'collection_created_on'  => date(MYSQL_DATETIME_FORMAT,$this->_created_on) ,
-               'collection_locked_on'   => ( (!$this->_locked_on) ? null : date(MYSQL_DATETIME_FORMAT,$this->_locked_on) ) ,
+               'collection_created_on'  => date(MYSQLI_DATETIME_FORMAT,$this->_created_on) ,
+               'collection_locked_on'   => ( (!$this->_locked_on) ? null : date(MYSQLI_DATETIME_FORMAT,$this->_locked_on) ) ,
               );
 
       // Save this collection
@@ -204,7 +204,7 @@ class GroupCollection {
     $this->_locked_on = time();
     if ($this->id) {
       $_fields = array  (
-                          'collection_locked_on'  => date(MYSQL_DATETIME_FORMAT,$this->_locked_on) ,
+                          'collection_locked_on'  => date(MYSQLI_DATETIME_FORMAT,$this->_locked_on) ,
                         );
       $this->_DAO->do_update("UPDATE " . APP__DB_TABLE_PREFIX . "collection ({fields}) WHERE collection_id = '{$this->id}' ",$_fields);
     }

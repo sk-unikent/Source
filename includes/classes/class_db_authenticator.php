@@ -30,7 +30,7 @@ class DBAuthenticator extends Authenticator {
     //match the username and password to the values in the database.
     $password = md5($this->password);
 
-    $sql = 'SELECT * FROM ' . APP__DB_TABLE_PREFIX . "user WHERE (username = '{$this->username}') AND (password = '$password') AND (source_id = '')";
+    $sql = 'SELECT * FROM ' . APP__DB_TABLE_PREFIX . "user WHERE (username = '{$this->username}') AND (password = '$password')";
 
     return $this->initialise($sql);
 

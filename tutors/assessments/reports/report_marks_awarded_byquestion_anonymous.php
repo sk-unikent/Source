@@ -54,12 +54,12 @@ if ($assessment->load($assessment_id)) {
   // ----------------------------------------
   // Get the marking parameters used for the marksheet this report will display
 
-  $md_mysql_date = date(MYSQL_DATETIME_FORMAT, $marking_date);
+  $md_mysqli_date = date(MYSQLI_DATETIME_FORMAT, $marking_date);
 
   $params_xml = $DB->fetch_value("SELECT marking_params
                   FROM " . APP__DB_TABLE_PREFIX . "assessment_marking
                   WHERE assessment_id = '$assessment->id'
-                    AND date_created = '$md_mysql_date'
+                    AND date_created = '$md_mysqli_date'
                   LIMIT 1");
 
   $params = $xml_parser->parse($params_xml);

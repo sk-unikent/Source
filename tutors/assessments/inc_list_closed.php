@@ -31,7 +31,7 @@
 // Get and organise assessments
 
 // get the assessment that are closed (but not marked)
-$now = date(MYSQL_DATETIME_FORMAT);
+$now = date(MYSQLI_DATETIME_FORMAT);
 $assessments = $DB->fetch("SELECT a.*
               FROM " . APP__DB_TABLE_PREFIX . "assessment a
                 LEFT JOIN " . APP__DB_TABLE_PREFIX . "assessment_marking am ON a.assessment_id = am.assessment_id

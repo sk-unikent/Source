@@ -114,12 +114,12 @@ if ( ($command) && ($assessment) ) {
         $xml_array['parameters']['grading']['_attributes'] = array ( 'value'  => $grading );
         $xml_array['parameters']['algorithm']['_attributes'] = array ( 'value'  => $algorithm );
 
-        $mysql_now = date(MYSQL_DATETIME_FORMAT,time());
+        $mysqli_now = date(MYSQLI_DATETIME_FORMAT,time());
 
         $fields = array (
           'assessment_id'     => $assessment_id ,
-          'date_created'      => $mysql_now ,
-          'date_last_marked'  => $mysql_now ,
+          'date_created'      => $mysqli_now ,
+          'date_last_marked'  => $mysqli_now ,
           'marking_params'    => $xml_parser->generate_xml($xml_array) ,
         );
         $DB->do_insert('INSERT INTO ' . APP__DB_TABLE_PREFIX . 'assessment_marking ({fields}) VALUES ({values})', $fields);
